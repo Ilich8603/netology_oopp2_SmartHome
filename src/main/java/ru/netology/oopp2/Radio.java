@@ -14,7 +14,7 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentStationNumber (int newStationNumber) {
+    public void setCurrentStationNumber(int newStationNumber) {
         if (newStationNumber < 0) {
             setMaxStationNumber();
             return;
@@ -56,31 +56,29 @@ public class Radio {
 
     public void nextStation() {
         if (currentStationNumber < 9) {
-            currentStationNumber ++;
-        }
-        else {
+            currentStationNumber++;
+        } else {
             setMinStationNumber();
         }
     }
 
     public void increaseVolume() {
         if (currentVolume < 100) {
-            currentVolume ++;
+            currentVolume++;
         }
     }
 
     public void previousStation() {
         if (currentStationNumber > 0) {
-            currentStationNumber --;
-        }
-        else {
+            currentStationNumber--;
+        } else {
             setMaxStationNumber();
         }
     }
 
     public void decreaseVolume() {
-         if (currentVolume > 0) {
-             currentVolume --;
-         }
+        if (currentVolume > 0) {
+            currentVolume--;
+        }
     }
 }
