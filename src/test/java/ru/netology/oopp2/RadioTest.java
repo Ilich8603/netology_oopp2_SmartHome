@@ -145,17 +145,18 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void shouldNotSetVolumeAboveMin() {
-//        Radio cond = new Radio();
-//
-//        cond.setCurrentVolume(-2);
-//
-//        int expected = 0;
-//        int actual = cond.getCurrentVolume();
-//
-//        Assertions.assertEquals(expected, actual);
-//    }
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/userCountStation.csv")
+    public void shouldSetCountStationAboveMax(int countStations, int newStationNumber, int expected) {
+        Radio cond = new Radio(countStations);
+
+        cond.setCurrentStationNumber(newStationNumber);
+
+
+        int actual = cond.getCurrentStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
 //    @Test
 //    public void shouldNotSetVolumeAboveMax() {
@@ -192,7 +193,6 @@ public class RadioTest {
 //
 //        Assertions.assertEquals(expected, actual);
 //    }
-
 
 
 }
