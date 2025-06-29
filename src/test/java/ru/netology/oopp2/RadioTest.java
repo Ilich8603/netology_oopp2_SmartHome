@@ -161,4 +161,17 @@ public class RadioTest {
     }
 
 
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/stationsQuantity.csv")
+    void shouldSetStationsQuantity(int stationsQuantity, int expected) {
+        Radio radio = new Radio();
+
+        radio.setStationsQuantity(stationsQuantity);
+
+
+        int actual = radio.getStationsQuantity();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
 }
