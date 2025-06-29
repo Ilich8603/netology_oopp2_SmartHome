@@ -25,12 +25,12 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/setRadio_volume.csv")
     public void shouldSetVolume(int newCurrentVolume, int expected) {
-        Radio cond = new Radio();
+        Radio radio = new Radio();
 
-        cond.setCurrentVolume(newCurrentVolume);
+        radio.setCurrentVolume(newCurrentVolume);
 
 
-        int actual = cond.getCurrentVolume();
+        int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -38,13 +38,13 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/nextRadio_station.csv")
     public void shouldNextStation(int newStation, int expected) {
-        Radio cond = new Radio();
-        cond.setCurrentStation(newStation);
+        Radio radio = new Radio();
+        radio.setCurrentStation(newStation);
 
-        cond.nextStation();
+        radio.nextStation();
 
 
-        int actual = cond.getCurrentStation();
+        int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -52,13 +52,13 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/previousRadio_station.csv")
     public void shouldPreviousStation(int newStation, int expected) {
-        Radio cond = new Radio();
-        cond.setCurrentStation(newStation);
+        Radio radio = new Radio();
+        radio.setCurrentStation(newStation);
 
-        cond.previousStation();
+        radio.previousStation();
 
 
-        int actual = cond.getCurrentStation();
+        int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -66,13 +66,13 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/increaseRadio_volume.csv")
     public void shouldIncreaseVolume(int newCurrentVolume, int expected) {
-        Radio cond = new Radio();
-        cond.setCurrentVolume(newCurrentVolume);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(newCurrentVolume);
 
-        cond.increaseVolume();
+        radio.increaseVolume();
 
 
-        int actual = cond.getCurrentVolume();
+        int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -80,13 +80,13 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/decreaseRadio_volume.csv")
     public void shouldDecreaseVolume(int newCurrentVolume, int expected) {
-        Radio cond = new Radio();
-        cond.setCurrentVolume(newCurrentVolume);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(newCurrentVolume);
 
-        cond.decreaseVolume();
+        radio.decreaseVolume();
 
 
-        int actual = cond.getCurrentVolume();
+        int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -94,68 +94,68 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/multipleNextRadio_station.csv")
     public void multipleNextStation(int newStation, int expected, int steps) {
-        Radio cond = new Radio();
-        cond.setCurrentStation(newStation);
+        Radio radio = new Radio();
+        radio.setCurrentStation(newStation);
 
         for (int i = 0; i < steps; i++) {
-            cond.nextStation();
+            radio.nextStation();
         }
 
-        int actual = cond.getCurrentStation();
+        int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/multiplePreviousRadio_station.csv")
     public void multiplePreviousStation(int newStation, int expected, int steps) {
-        Radio cond = new Radio();
-        cond.setCurrentStation(newStation);
+        Radio radio = new Radio();
+        radio.setCurrentStation(newStation);
 
         for (int i = 0; i < steps; i++) {
-            cond.previousStation();
+            radio.previousStation();
         }
 
-        int actual = cond.getCurrentStation();
+        int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/multipleIncreaseRadio_volume.csv")
     public void multipleIncreasesVolume(int newCurrentVolume, int expected, int increases) {
-        Radio cond = new Radio();
-        cond.setCurrentVolume(newCurrentVolume);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(newCurrentVolume);
 
         for (int i = 0; i < increases; i++) {
-            cond.increaseVolume();
+            radio.increaseVolume();
         }
 
-        int actual = cond.getCurrentVolume();
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/multipleDecreaseRadio_volume.csv")
     public void multipleDecreasesVolume(int newCurrentVolume, int expected, int decreases) {
-        Radio cond = new Radio();
-        cond.setCurrentVolume(newCurrentVolume);
+        Radio radio = new Radio();
+        radio.setCurrentVolume(newCurrentVolume);
 
         for (int i = 0; i < decreases; i++) {
-            cond.decreaseVolume();
+            radio.decreaseVolume();
         }
 
-        int actual = cond.getCurrentVolume();
+        int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/userCountStation.csv")
     public void shouldSetCountStationAboveMax(int countStations, int newStation, int expected) {
-        Radio cond = new Radio(countStations);
+        Radio radio = new Radio(countStations);
 
-        cond.setCurrentStation(newStation);
+        radio.setCurrentStation(newStation);
 
 
-        int actual = cond.getCurrentStation();
+        int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
